@@ -1,9 +1,12 @@
 import React from 'react';
+import Routes from './Routes';
+import Header from './Header';
 
-function App() {
-  return (
-   <h1>Hello teleconsulta</h1>
-  );
-}
+const App = () => (
+  <div className='App'>
+    <Header />
+    <Routes />
+  </div>
+);
 
 export default App;

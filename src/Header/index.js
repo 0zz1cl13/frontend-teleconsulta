@@ -100,7 +100,7 @@ export default function Header() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="relative" style={{ colorDefault:'#209F85'}}>
+      <AppBar position="relative">
         <Toolbar>
           <IconButton
             edge="start"

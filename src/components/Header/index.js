@@ -15,15 +15,20 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import {useStyles} from './styles.js';
 
-
 export default function Header() {
+
+
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [SideMenuPress] = React.useState(true);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  const handleSideMenuPress = () => ({ SideMenuPress: !SideMenuPress });
+
+  
   const handleProfileMenuOpen = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -97,7 +102,6 @@ export default function Header() {
       </MenuItem>
     </Menu>
   );
-
   return (
     <div className={classes.grow}>
       <AppBar position="relative">
@@ -107,9 +111,12 @@ export default function Header() {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
+            onChange={handleSideMenuPress}
           >
             <MenuIcon />
           </IconButton>
+          
+          
           <Typography className={classes.title} variant="h6" noWrap>
             e-Teleconsultas
           </Typography>
@@ -165,6 +172,7 @@ export default function Header() {
       {renderMobileMenu}
       {renderMenu}
     </div>
+
   );
 
 }

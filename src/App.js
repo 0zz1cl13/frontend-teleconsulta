@@ -1,6 +1,7 @@
 import React from 'react';
 import Routes from './Routes';
-import Header from './Header';
+import Header from './components/Header';
+import SideDrawer from './components/SideDrawer';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 

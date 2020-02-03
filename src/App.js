@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Routes from './Routes';
 import Header from './components/Header';
 import SideDrawer from './components/SideDrawer';
+import Backdrop from './components/BackDrop'
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
+import SmallSideDrawer from './components/SmallSideDrawer';
 
 const theme = createMuiTheme({
   palette: {
@@ -23,15 +25,42 @@ const theme = createMuiTheme({
   },
 });
 
+class App extends Component{
+  state = {
+    SideDrawerOpen:false
+  };
 
+  sideDrawerClickHandler = () => {
+    this.setState((prevState) => {
+      return {SideDrawerOpen: !prevState.SideDrawerOpen};
+    })
+  };
 
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <div className='App'>
-      <Header />
-      <Routes />
-    </div>
-  </ThemeProvider>
-);
+  backDropClickHandler = () => {
+    this.setState({SideDrawerOpen: false})
+  };
+
+  render(){
+    let sideDrawer;
+    let backDrop;
+    
+    if(this.state.SideDrawerOpen){
+      sideDrawer = <SideDrawer/>;
+      backDrop =<Backdrop click={this.backDropClickHandler}/>;
+    }
+
+    return (
+      <ThemeProvider theme={theme}>
+      <div style={{height: '100%'}}>
+        <Header drawerClickHandler={this.sideDrawerClickHandler}/>
+        {sideDrawer}
+        {backDrop}
+        <SmallSideDrawer/>;
+        <Routes />
+      </div>
+    </ThemeProvider>
+    );
+  }
+}
 
 export default App;

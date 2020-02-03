@@ -15,7 +15,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import {useStyles} from './styles.js';
 
-export default function Header() {
+export default function Header(props) {
 
 
   const classes = useStyles();
@@ -112,6 +112,7 @@ export default function Header() {
             color="inherit"
             aria-label="open drawer"
             onChange={handleSideMenuPress}
+            onClick={props.drawerClickHandler}
           >
             <MenuIcon />
           </IconButton>

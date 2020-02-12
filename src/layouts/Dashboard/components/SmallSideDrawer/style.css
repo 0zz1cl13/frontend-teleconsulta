@@ -1,5 +1,5 @@
-.small-side-drawer{
-    height: 100%;
-    position: absolute;
-
+.small-side-drawer {
+  height: 100%;
+  position: fixed;
+  left: 0px;
 }

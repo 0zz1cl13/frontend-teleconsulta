@@ -1,0 +1,18 @@
+#divCard {
+  align-items: center;
+  position: absolute;
+  top: 150px;
+  left: 180px;
+}
+
+#divLabel1 {
+  margin-top: 100px;
+}
+
+#fieldName {
+  width: 489px;
+}
+#TextField {
+  margin-left: 5px;
+  padding-left: 10px;
+}
